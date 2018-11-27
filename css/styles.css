@@ -1,0 +1,27 @@
+body{
+    font-size: 36px;
+}
+
+ul.no-ticks{
+    list-style: none;
+}
+
+.no-ticks li {
+    padding-left: 20px;
+    position: relative
+}
+
+.no-ticks li.active{
+    font-weight: bold;
+}
+
+.no-ticks li.active:before{
+    content: 'o';
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+}
+
+.question .answer{
+    width: 50%;
+}

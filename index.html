@@ -1,5 +1,35 @@
 <html>
+
+<head>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+</head>
+
 <body>
-<h1>Hello Tatev</h1>
+    <h1>Hello Tatev</h1>
+    <div id="app">
+        <div>{{message}}</div>
+        <ul class="no-ticks">
+            <li v-for="item in points" v-bind:class="{active: item.active}">{{item.value}}</li>
+        </ul>
+        <div v-if="!showFinalText" class="question">
+            <div v-for="item in questions" :key="item.id">
+                <div v-if="item.active">
+                    <p>{{item.text}}</p>
+                    <div v-for="answ in item.answers">
+                        <div class="answers">
+                            <div v-on:click="moveToNextQuestion(item.id)">{{answ.litera}}</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div v-if="showFinalText">
+            you are the winner!!
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="js/app.js"></script>
 </body>
+
 </html>
