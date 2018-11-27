@@ -16,7 +16,7 @@ ul.no-ticks{
 }
 
 .no-ticks li.active:before{
-    content: 'o';
+    content: '<';
     position: absolute;
     left: 0;
     bottom: 4px;
@@ -24,4 +24,9 @@ ul.no-ticks{
 
 .question .answer{
     width: 50%;
+    float: left;
+}
+
+.answer button{
+    width: 100%;
 }

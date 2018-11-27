@@ -10,22 +10,26 @@ var app = new Vue({
                 answers: [{
                         litera: "A",
                         text: "QA",
-                        correct: true
+                        correct: true,
+                        id: 0
                     },
                     {
                         litera: "B",
                         text: "Developer",
-                        correct: false
+                        correct: false,
+                        id: 1
                     },
                     {
                         litera: "C",
                         text: "Manager",
-                        correct: false
+                        correct: false,
+                        id: 2
                     },
                     {
                         litera: "D",
                         text: "Director",
-                        correct: false
+                        correct: false,
+                        id: 3
                     }
                 ]
             },
@@ -36,22 +40,26 @@ var app = new Vue({
                 answers: [{
                         litera: "A",
                         text: "Armenia",
-                        correct: false
+                        correct: false,
+                        id: 0
                     },
                     {
                         litera: "B",
                         text: "Belarus",
-                        correct: true
+                        correct: true,
+                        id: 1
                     },
                     {
                         litera: "C",
                         text: "Canada",
-                        correct: false
+                        correct: false,
+                        id: 2
                     },
                     {
                         litera: "D",
                         text: "Laplandia",
-                        correct: false
+                        correct: false,
+                        id: 3
                     }
                 ]
             }
@@ -74,8 +82,18 @@ var app = new Vue({
         ]
     },
     methods: {
-        moveToNextQuestion: function (currentQuestionId) {
+        moveToNextQuestion: function (anwsSelectedId) {
             console.log(currentQuestionId);
+
+            var currentQuestionId = this.questions.filter(function(item){
+                return item.active == true;
+            })[0].id;
+
+            if (this.questions[currentQuestionId].answers[anwsSelectedId].correct != true){
+                alert("think again!")
+                return;
+            }
+
             if (currentQuestionId == this.questions.length) {
                 this.showFinalText = true;
                 this.points[currentQuestionId].active = false;

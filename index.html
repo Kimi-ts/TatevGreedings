@@ -16,11 +16,10 @@
                 <div v-if="item.active">
                     <p>{{item.text}}</p>
                     <div v-for="answ in item.answers">
-                        <div class="answers">
-                            <div v-on:click="moveToNextQuestion(item.id)">{{answ.litera}}</div>
+                        <div class="answer">
+                            <button v-on:click="moveToNextQuestion(answ.id)">{{answ.litera}}  {{answ.text}}</button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
