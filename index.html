@@ -1,42 +1,58 @@
 <html>
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
     <div id="app">
         <div v-if="activeScreen == 'welcomeScreen'">
-            <h1>Hello Bob</h1>
-            <div>{{message}}</div>
+            <h1 class="mb-5 display-1">Hello Bob</h1>
+            <div class="display-4 lead mb-5">{{message}}</div>
             <div>
-                <p>Are you ready to start?</p>
-                <button :disabled="yesButtonDisabled" v-on:click="activeScreen='realQuiz'">Yes I'm ready</button>
-                <button :disabled="noButtonDisabled" v-on:click="activeScreen='demoQuiz'">No I'm ready</button>
+                <p class="display-4 mb-5" v-if="displayReadyText">Ты прошла демо-тест, теперь ты готова к реальному испытанию. Подходи ответственно с ответу на вопросы, и тогда ты сможешь изменить чью-то судьбу</p>
+                <p class="display-4 mb-5">Ты готова начать?</p>
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="mr-5 btn btn-success btn-lg" :disabled="yesButtonDisabled" v-on:click="activeScreen='realQuiz'">ДА,
+                        Я ГОТОВА</button>
+                    <button type="button" class="btn btn-danger btn-lg" :disabled="noButtonDisabled" v-on:click="activeScreen='demoQuiz'">НЕТ,
+                        Я ГОТОВА</button>
+                </div>
             </div>
         </div>
-        <div v-if="activeScreen=='demoQuiz'">
+        <div class="pt-5" v-if="activeScreen=='demoQuiz'">
             <div class="question">
                 <div v-for="item in demoQuestions" :key="item.id">
                     <div v-if="item.active">
-                        <p>{{item.text}}</p>
+                        <p class="display-4 font-weight-bold pt-3">Вопрос:</p>
+                        <p class="display-4 pb-5">{{item.text}}</p>
+                        <p class="display-3 text-danger pb-3" v-if="displayWarning">Подумай хорошенько</p>
                         <div v-for="answ in item.answers">
-                            <div class="answer">
-                                <button v-on:click="moveToNextQuestion(answ.id)">{{answ.litera}} {{answ.text}}</button>
+                            <div class="answer p-1">
+                                <div v-if="item.images">
+                                    <img v-bind:src="answ.url">
+                                </div>
+                                <button type="button" class="btn btn-lg" v-on:click="moveToNextQuestion(answ.id)"
+                                    :disabled="answ.disabled">{{answ.litera}} {{answ.text}}</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div v-if="activeScreen=='realQuiz'">
+        <div class="pt-5" v-if="activeScreen=='realQuiz'">
             <div class="question">
                 <div v-for="item in questions" :key="item.id">
                     <div v-if="item.active">
-                        <p>{{item.text}}</p>
+                        <p class="display-4 font-weight-bold pt-3">Вопрос:</p>
+                        <p class="display-4 pb-5">{{item.text}}</p>
+                        <p class="display-3 text-danger pb-3" v-if="displayWarning">Даю ещё одну попытку!</p>
                         <div v-for="answ in item.answers">
-                            <div class="answer">
-                                <button v-on:click="moveToNextQuestion(answ.id)">{{answ.litera}} {{answ.text}}</button>
+                            <div class="answer p-1">
+                                <button type="button" class="btn btn-lg" v-on:click="moveToNextQuestion(answ.id)">{{answ.litera}} {{answ.text}}</button>
                             </div>
                         </div>
                     </div>
@@ -44,7 +60,10 @@
             </div>
         </div>
         <div v-if="activeScreen=='finalText'">
-            you are the winner!!
+                <div class="display-4 lead mb-5">
+                    <p>Поздравляем!</p>
+                    <p>Машина до Беловежской пущи в составе тех, кого ты выбрала в последнем вопросе, ждёт тебя 25 декабря, чтобы лично познакомиться с Дедом Морозом и отметить твой др.</p>
+                </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>

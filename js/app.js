@@ -1,37 +1,37 @@
 var app = new Vue({
     el: '#app',
     data: {
-        message: 'Hi! This is a super-puper Christmas and Birthday quiz for you!',
+        message: 'Тебе предстоит сложня игра. От твоих правильных ответов зависит чья-то судьба. Помни, когда ты отвечаешь неправильно, где-то в Армении грустит один Авет Барсехян.',
         activeScreen: "welcomeScreen",
         yesButtonDisabled: true,
         noButtonDisabled: false,
+        displayWarning: false,
+        displayReadyText: false,
         questions: [{
             id: 0,
             active: true,
-            text: "What is your profession?",
-            images: true,
+            text: "Где находится резиденция белорусского Деда Мороза?",
             answers: [{
-                    litera: "A",
-                    text: "QA",
-                    url: "",
-                    correct: true,
+                    litera: "A: ",
+                    text: "Масюковщина",
+                    correct: false,
                     id: 0
                 },
                 {
-                    litera: "B",
-                    text: "Developer",
+                    litera: "B: ",
+                    text: "Гомель",
                     correct: false,
                     id: 1
                 },
                 {
-                    litera: "C",
-                    text: "Manager",
-                    correct: false,
+                    litera: "C: ",
+                    text: "Беловежская пуща",
+                    correct: true,
                     id: 2
                 },
                 {
-                    litera: "D",
-                    text: "Director",
+                    litera: "D: ",
+                    text: "Малиновка",
                     correct: false,
                     id: 3
                 }
@@ -40,28 +40,58 @@ var app = new Vue({
         {
             id: 1,
             active: false,
-            text: "Where do you live?",
+            text: "Когда все католики в мире отмечают день рождения Татев Арутюнян?",
             answers: [{
-                    litera: "A",
-                    text: "Armenia",
+                    litera: "A: ",
+                    text: "7 января",
                     correct: false,
                     id: 0
                 },
                 {
-                    litera: "B",
-                    text: "Belarus",
+                    litera: "B: ",
+                    text: "25 декабря",
                     correct: true,
                     id: 1
                 },
                 {
-                    litera: "C",
-                    text: "Canada",
+                    litera: "C: ",
+                    text: "31 декабря",
                     correct: false,
                     id: 2
                 },
                 {
-                    litera: "D",
-                    text: "Laplandia",
+                    litera: "D: ",
+                    text: "13 января",
+                    correct: false,
+                    id: 3
+                }
+            ]
+        },
+        {
+            id: 2,
+            active: false,
+            text: "Кого бы ты взяла с собой в Рождественское путешествие?",
+            answers: [{
+                    litera: "A: ",
+                    text: "Джулиета, Таня + Максим",
+                    correct: true,
+                    id: 0
+                },
+                {
+                    litera: "B: ",
+                    text: "Матвей, Игорь, Таня (те которые с Суши-Вёсла)",
+                    correct: false,
+                    id: 1
+                },
+                {
+                    litera: "C: ",
+                    text: "Оля, Максим (с работы)",
+                    correct: false,
+                    id: 2
+                },
+                {
+                    litera: "D: ",
+                    text: "Мусик, Гена, Каспарова",
                     correct: false,
                     id: 3
                 }
@@ -71,31 +101,34 @@ var app = new Vue({
         demoQuestions: [{
                 id: 0,
                 active: true,
-                text: "What is your profession?",
+                text: "С каким лицом Татев Арутюнян ходит на шоппинг?",
                 images: true,
                 answers: [{
                         litera: "A",
-                        text: "QA",
-                        url: "",
-                        correct: true,
+                        text: "Сумасшедший энтузиазм",
+                        url: "img/question/1.png",
+                        correct: false,
                         id: 0
                     },
                     {
                         litera: "B",
-                        text: "Developer",
+                        text: "Я куплю тут у вас всё",
+                        url: "img/question/2.png",
                         correct: false,
                         id: 1
                     },
                     {
                         litera: "C",
-                        text: "Manager",
+                        text: "Что мне ещё купить?",
+                        url: "img/question/3.png",
                         correct: false,
                         id: 2
                     },
                     {
                         litera: "D",
-                        text: "Director",
-                        correct: false,
+                        text: "о май гад",
+                        url: "img/question/4.png",
+                        correct: true,
                         id: 3
                     }
                 ]
@@ -103,29 +136,63 @@ var app = new Vue({
             {
                 id: 1,
                 active: false,
-                text: "Where do you live?",
+                text: "Кто у Арутюнянов глава семьи?",
                 answers: [{
                         litera: "A",
-                        text: "Armenia",
+                        text: "Татев",
                         correct: false,
+                        disabled: true,
                         id: 0
                     },
                     {
                         litera: "B",
-                        text: "Belarus",
+                        text: "Джулиета",
+                        correct: true,
+                        disabled: false,
+                        id: 1
+                    },
+                    {
+                        litera: "C",
+                        text: "Папа",
+                        correct: false,
+                        disabled: true,
+                        id: 2
+                    },
+                    {
+                        litera: "D",
+                        text: "Мама",
+                        correct: false,
+                        disabled: true,
+                        id: 3
+                    }
+                ]
+            },
+            {
+                id: 2,
+                active: false,
+                text: "Чем Татев больше всего любит заниматься?",
+                answers: [{
+                        litera: "A",
+                        text: "Бокс",
+                        correct: true,
+                        id: 0
+                    },
+                    {
+                        litera: "B",
+                        text: "Бокс",
                         correct: true,
                         id: 1
                     },
                     {
                         litera: "C",
-                        text: "Canada",
-                        correct: false,
+                        text: "Бокс",
+                        correct: true,
                         id: 2
                     },
                     {
                         litera: "D",
-                        text: "Laplandia",
-                        correct: false,
+                        text: "Бокс",
+                        correct: true,
                         id: 3
                     }
                 ]
@@ -134,6 +201,7 @@ var app = new Vue({
     },
     methods: {
         moveToNextQuestion: function (anwsSelectedId) {
+            this.displayWarning = false;
 
             var questions;
             if (this.activeScreen == 'demoQuiz'){
@@ -148,13 +216,16 @@ var app = new Vue({
             })[0].id;
 
             if (questions[currentQuestionId].answers[anwsSelectedId].correct != true){
-                alert("think again!")
-                return;
+                this.displayWarning = true;
+                return ;
             }
 
             if (currentQuestionId == questions.length) {
+                this.questions[0].active = true;
+                this.demoQuestions[0].active = true;
                 if (this.activeScreen == 'demoQuiz'){
                     this.activeScreen = 'welcomeScreen';
+                    this.displayReadyText = true;
                     this.yesButtonDisabled = false;
                 }
                 else{
@@ -167,9 +238,12 @@ var app = new Vue({
                     questions[currentQuestionId + 1].active = true;
                 }
                 else{
+                    this.questions[0].active = true;
+                    this.demoQuestions[0].active = true;
                     if (this.activeScreen == 'demoQuiz'){
                         this.activeScreen = 'welcomeScreen';
                         this.yesButtonDisabled = false;
+                        this.displayReadyText = true;
                     }
                     else{
                         this.activeScreen = 'finalText';
