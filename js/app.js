@@ -106,28 +106,28 @@ var app = new Vue({
                 answers: [{
                         litera: "A",
                         text: "Сумасшедший энтузиазм",
-                        url: "img/question/1.png",
+                        url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/1.PNG",
                         correct: false,
                         id: 0
                     },
                     {
                         litera: "B",
                         text: "Я куплю тут у вас всё",
-                        url: "img/question/2.png",
+                        url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/2.PNG",
                         correct: false,
                         id: 1
                     },
                     {
                         litera: "C",
                         text: "Что мне ещё купить?",
-                        url: "img/question/3.png",
+                        url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/3.PNG",
                         correct: false,
                         id: 2
                     },
                     {
                         litera: "D",
                         text: "о май гад",
-                        url: "img/question/4.png",
+                        url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/4.PNG",
                         correct: true,
                         id: 3
                     }
