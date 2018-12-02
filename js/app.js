@@ -104,29 +104,29 @@ var app = new Vue({
                 text: "С каким лицом Татев Арутюнян ходит на шоппинг?",
                 images: true,
                 answers: [{
-                        litera: "A",
+                        litera: "A: ",
                         text: "Сумасшедший энтузиазм",
                         url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/1.PNG",
                         correct: false,
                         id: 0
                     },
                     {
-                        litera: "B",
+                        litera: "B: ",
                         text: "Я куплю тут у вас всё",
                         url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/2.PNG",
                         correct: false,
                         id: 1
                     },
                     {
-                        litera: "C",
+                        litera: "C: ",
                         text: "Что мне ещё купить?",
                         url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/3.PNG",
                         correct: false,
                         id: 2
                     },
                     {
-                        litera: "D",
-                        text: "о май гад",
+                        litera: "D: ",
+                        text: "O май гад",
                         url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/4.PNG",
                         correct: true,
                         id: 3
@@ -138,28 +138,28 @@ var app = new Vue({
                 active: false,
                 text: "Кто у Арутюнянов глава семьи?",
                 answers: [{
-                        litera: "A",
+                        litera: "A: ",
                         text: "Татев",
                         correct: false,
                         disabled: true,
                         id: 0
                     },
                     {
-                        litera: "B",
+                        litera: "B: ",
                         text: "Джулиета",
                         correct: true,
                         disabled: false,
                         id: 1
                     },
                     {
-                        litera: "C",
+                        litera: "C: ",
                         text: "Папа",
                         correct: false,
                         disabled: true,
                         id: 2
                     },
                     {
-                        litera: "D",
+                        litera: "D: ",
                         text: "Мама",
                         correct: false,
                         disabled: true,
@@ -172,25 +172,25 @@ var app = new Vue({
                 active: false,
                 text: "Чем Татев больше всего любит заниматься?",
                 answers: [{
-                        litera: "A",
+                        litera: "A: ",
                         text: "Бокс",
                         correct: true,
                         id: 0
                     },
                     {
-                        litera: "B",
+                        litera: "B: ",
                         text: "Бокс",
                         correct: true,
                         id: 1
                     },
                     {
-                        litera: "C",
+                        litera: "C: ",
                         text: "Бокс",
                         correct: true,
                         id: 2
                     },
                     {
-                        litera: "D",
+                        litera: "D: ",
                         text: "Бокс",
                         correct: true,
                         id: 3

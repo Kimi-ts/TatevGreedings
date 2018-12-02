@@ -10,10 +10,10 @@
 <body>
     <div id="app">
         <div v-if="activeScreen == 'welcomeScreen'">
-            <h1 class="mb-5 display-1">Hello Bob</h1>
+            <h1 class="mb-5 display-1">Hello Tatev!</h1>
             <div class="display-4 lead mb-5">{{message}}</div>
             <div>
-                <p class="display-4 mb-5" v-if="displayReadyText">Ты прошла демо-тест, теперь ты готова к реальному испытанию. Подходи ответственно с ответу на вопросы, и тогда ты сможешь изменить чью-то судьбу</p>
+                <p class="display-3 font-weight-bold mb-5" v-if="displayReadyText">Ты прошла демо-тест, теперь ты готова к реальному испытанию. Подходи ответственно с ответу на вопросы, и тогда ты сможешь изменить чью-то судьбу</p>
                 <p class="display-4 mb-5">Ты готова начать?</p>
                 <div class="d-flex justify-content-center">
                     <button type="button" class="mr-5 btn btn-success btn-lg" :disabled="yesButtonDisabled" v-on:click="activeScreen='realQuiz'">ДА,
@@ -35,7 +35,7 @@
                                 <div v-if="item.images">
                                     <img v-bind:src="answ.url">
                                 </div>
-                                <button type="button" class="btn btn-lg" v-on:click="moveToNextQuestion(answ.id)"
+                                <button type="button" class="btn btn-info btn-lg" v-on:click="moveToNextQuestion(answ.id)"
                                     :disabled="answ.disabled">{{answ.litera}} {{answ.text}}</button>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                         <p class="display-3 text-danger pb-3" v-if="displayWarning">Даю ещё одну попытку!</p>
                         <div v-for="answ in item.answers">
                             <div class="answer p-1">
-                                <button type="button" class="btn btn-lg" v-on:click="moveToNextQuestion(answ.id)">{{answ.litera}} {{answ.text}}</button>
+                                <button type="button" class="btn btn-primary btn-lg" v-on:click="moveToNextQuestion(answ.id)">{{answ.litera}} {{answ.text}}</button>
                             </div>
                         </div>
                     </div>
@@ -61,8 +61,8 @@
         </div>
         <div v-if="activeScreen=='finalText'">
                 <div class="display-4 lead mb-5">
-                    <p>Поздравляем!</p>
-                    <p>Машина до Беловежской пущи в составе тех, кого ты выбрала в последнем вопросе, ждёт тебя 25 декабря, чтобы лично познакомиться с Дедом Морозом и отметить твой др.</p>
+                    <p class="display-4 mb-3">Поздравляем!</p>
+                    <p>Машина до <span class="font-weight-bold">Беловежской пущи</span> в составе тех, кого ты выбрала в последнем вопросе, ждёт тебя <span class="font-weight-bold">25 декабря</span>, чтобы лично познакомиться с Дедом Морозом и отметить твой др.</p>
                 </div>
         </div>
     </div>
