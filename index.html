@@ -30,7 +30,7 @@
                         <p class="display-4 pb-5">{{item.text}}</p>
                         <p class="display-3 text-danger pb-3" v-if="displayWarning">Подумай хорошенько</p>
                         <div class="row">
-                            <div v-for="answ in item.answers" class="col-6 answer">
+                            <div v-for="answ in item.answers" class="col-6 answer pb-1">
                                 <div v-if="item.images">
                                     <img v-bind:src="answ.url">
                                 </div>

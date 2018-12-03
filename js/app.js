@@ -105,7 +105,7 @@ var app = new Vue({
                 images: true,
                 answers: [{
                         litera: "A: ",
-                        text: "Сумасшедший энтузиазм",
+                        text: "Много энтузиазма",
                         url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/1.jpg",
                         correct: false,
                         id: 0
