@@ -2,8 +2,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -30,13 +29,12 @@
                         <p class="display-4 font-weight-bold pt-3">Вопрос:</p>
                         <p class="display-4 pb-5">{{item.text}}</p>
                         <p class="display-3 text-danger pb-3" v-if="displayWarning">Подумай хорошенько</p>
-                        <div v-for="answ in item.answers">
-                            <div class="answer p-1">
+                        <div class="row">
+                            <div v-for="answ in item.answers" class="col-6 answer">
                                 <div v-if="item.images">
                                     <img v-bind:src="answ.url">
                                 </div>
-                                <button type="button" class="btn btn-info btn-lg" v-on:click="moveToNextQuestion(answ.id)"
-                                    :disabled="answ.disabled">{{answ.litera}} {{answ.text}}</button>
+                                <button type="button" class="btn btn-info btn-lg" v-on:click="moveToNextQuestion(answ.id)" :disabled="answ.disabled">{{answ.litera}} {{answ.text}}</button>
                             </div>
                         </div>
                     </div>
@@ -60,10 +58,10 @@
             </div>
         </div>
         <div v-if="activeScreen=='finalText'">
-                <div class="display-4 lead mb-5">
-                    <p class="display-4 mb-3">Поздравляем!</p>
-                    <p>Машина до <span class="font-weight-bold">Беловежской пущи</span> в составе тех, кого ты выбрала в последнем вопросе, ждёт тебя <span class="font-weight-bold">25 декабря</span>, чтобы лично познакомиться с Дедом Морозом и отметить твой др.</p>
-                </div>
+            <div class="display-4 lead mb-5">
+                <p class="display-4 mb-3">Поздравляем!</p>
+                <p>Машина до <span class="font-weight-bold">Беловежской пущи</span> в составе тех, кого ты выбрала в последнем вопросе, ждёт тебя <span class="font-weight-bold">25 декабря</span>, чтобы лично познакомиться с Дедом Морозом и отметить твой др.</p>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
