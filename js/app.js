@@ -106,28 +106,28 @@ var app = new Vue({
                 answers: [{
                         litera: "A: ",
                         text: "Сумасшедший энтузиазм",
-                        url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/1.PNG",
+                        url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/1.jpg",
                         correct: false,
                         id: 0
                     },
                     {
                         litera: "B: ",
                         text: "Я куплю тут у вас всё",
-                        url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/2.PNG",
+                        url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/2.jpg",
                         correct: false,
                         id: 1
                     },
                     {
                         litera: "C: ",
                         text: "Что мне ещё купить?",
-                        url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/3.PNG",
+                        url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/3.jpg",
                         correct: false,
                         id: 2
                     },
                     {
                         litera: "D: ",
                         text: "O май гад",
-                        url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/4.PNG",
+                        url: "https://raw.githubusercontent.com/Kimi-ts/TatevGreedings/master/img/question/4.jpg",
                         correct: true,
                         id: 3
                     }
@@ -227,6 +227,7 @@ var app = new Vue({
                     this.activeScreen = 'welcomeScreen';
                     this.displayReadyText = true;
                     this.yesButtonDisabled = false;
+                    this.noButtonDisabled = true;
                 }
                 else{
                     this.activeScreen = 'finalText';
@@ -243,6 +244,7 @@ var app = new Vue({
                     if (this.activeScreen == 'demoQuiz'){
                         this.activeScreen = 'welcomeScreen';
                         this.yesButtonDisabled = false;
+                        this.noButtonDisabled = true;
                         this.displayReadyText = true;
                     }
                     else{
